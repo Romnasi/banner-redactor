@@ -1,7 +1,57 @@
 body {
-  background-color: tomato;
+  background-color: white;
+  font-family: Roboto, sans-serif;
 }
 
-canvas {
-  border: 1px red solid;
+.promo {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-left: 20px;
+
+  background-color: #3949ab;
+  color: white;
+}
+
+.promo__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4em;
+  /* line-height: 2em; */
+  word-wrap: break-word;
+}
+
+.preview-wrapper {
+  /* max-height: 10vh; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.export-buttons__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  min-width: 280px;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1220px;
+  }
 }
