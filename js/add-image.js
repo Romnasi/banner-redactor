@@ -1,11 +1,12 @@
 // add-image.js
-"use strict"
+(() => {
+  "use strict"
 
-const fileChooser = document.querySelector(`.form__control--file`);
-const FILE_TYPES = [`gif`, `jpg`, `jpeg`, `png`];
+  const fileChooser = document.querySelector(`.form__control--file`);
+  const FILE_TYPES = [`gif`, `jpg`, `jpeg`, `png`];
 
 
-fileChooser.addEventListener("change", function (e) {
+  fileChooser.addEventListener("change", function (e) {
     const file = e.target.files[0];
 
     const fileName = file.name.toLowerCase();
@@ -22,10 +23,10 @@ fileChooser.addEventListener("change", function (e) {
             left: 0,
             top: 0,
             angle: '00',
-          }).scale(0.2);
-          canvas.add(oImg).renderAll();
+          }).scale(0.3);
+          window.canvas.canvas.add(oImg).renderAll();
 
-          const dataURL = canvas.toDataURL({
+          const dataURL = window.canvas.canvas.toDataURL({
             format: 'png',
             quality: 1
           });
@@ -34,4 +35,6 @@ fileChooser.addEventListener("change", function (e) {
       reader.readAsDataURL(file);
     }
 
-});
+  });
+
+})();

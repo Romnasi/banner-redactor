@@ -1,4 +1,18 @@
-body {
+/* Global */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.body {
+  width: 100%;
+  max-width: 100%;
   background-color: white;
   font-family: Roboto, sans-serif;
 }
@@ -18,20 +32,46 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 4em;
-  /* line-height: 2em; */
   word-wrap: break-word;
 }
 
+
 .preview-wrapper {
-  /* max-height: 10vh; */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 15px;
 }
 
 .form__list {
+  display: grid;
+  grid-template-columns: 1fr;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+@media (min-width: 1080px) {
+  .form__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.form__item {
+  display: grid;
+  margin-bottom: 20px;
+}
+
+.form__label {
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.form__control--textarea {
+  width: 100%;
 }
 
 .export-buttons__list {
