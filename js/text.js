@@ -48,7 +48,10 @@
   };
 
 
-  window.clipboard.inputBannerHTML.textContent = getBannerHTML();
+  const renderTextareaShowConfig = () => {
+    window.clipboard.inputBannerHTML.textContent = getBannerHTML();
+  };
+  renderTextareaShowConfig();
 
 
   const removeNodeChild = (node) => {
@@ -58,12 +61,17 @@
   };
 
 
-  const refreshDemo = () => {
+  const renderDemo = () => {
     removeNodeChild(htmlContainer);
     htmlContainer.insertAdjacentHTML(`afterbegin`, window.clipboard.inputBannerHTML.textContent);
   };
+  renderDemo();
 
-  refreshDemo();
+
+  const updateData = () => {
+    renderTextareaShowConfig();
+    renderDemo();
+  };
 
 
   const text = new window.fabric.IText(Default.TEXT, {
@@ -72,10 +80,7 @@
     fill: `black`,
     fontSize: 30,
     fontFamily: `Roboto`,
-    // hasRotatingPoint: `false`,
   });
-
-  window.canvas.canvas.add(text);
 
 
   // Убираем возможность вращения и масшабирования текста в canvas
@@ -92,34 +97,23 @@
   });
 
 
-  window.canvas.canvas.on(`text:changed`, function (e) {
+  window.canvas.canvas.add(text);
+
+
+  const onCanvasTextChange = (e) => {
     // Ограничиваем количество строк 3-мя
     let lines = e.target.text.split(`\n`);
     if (lines.length > MAX_NUMBER_OF_LINES) {
       lines = lines.slice(0, MAX_NUMBER_OF_LINES);
     }
     e.target.text = lines.join(`\n`);
-
     inputText.value = e.target.text;
-    // Отрисовываем текст баннера в textarea
     currentText = e.target.text;
-    window.clipboard.inputBannerHTML.textContent = getBannerHTML();
-    refreshDemo();
-  });
+    updateData();
+  };
 
 
-  inputCheckboxWithText.addEventListener(`change`, ()=> {
-    saveWithtext = inputCheckboxWithText.checked;
-    if (!saveWithtext) {
-      window.canvas.canvas.remove(text);
-    } else {
-      window.canvas.canvas.add(text);
-    }
-  });
-
-
-  inputText.addEventListener(`input`, () => {
-
+  const onInputTextChange = () => {
     let lines = inputText.value.split(`\n`);
 
     if (lines.length > MAX_NUMBER_OF_LINES) {
@@ -131,23 +125,36 @@
     inputText.value = lines.join(`\n`);
     inputText.reportValidity();
 
-
     window.canvas.canvas.remove(text);
     text.text = inputText.value;
     window.canvas.canvas.add(text);
-    // Отрисовываем текст баннера в textarea
+
     currentText = inputText.value;
-    window.clipboard.inputBannerHTML.textContent = getBannerHTML();
-    refreshDemo();
-  });
+    updateData();
+  };
 
 
-  inputLink.addEventListener(`input`, () => {
-    // Отрисовываем текст баннера в textarea
+  const onInputLinkChange = () => {
     currentLink = inputLink.value;
-    window.clipboard.inputBannerHTML.textContent = getBannerHTML();
-    refreshDemo();
-  });
+    updateData();
+  };
+
+
+  const oninputCheckboxWithTextChange = () => {
+    saveWithtext = inputCheckboxWithText.checked;
+    if (!saveWithtext) {
+      window.canvas.canvas.remove(text);
+    } else {
+      window.canvas.canvas.add(text);
+    }
+  };
+
+
+  window.canvas.canvas.on(`text:changed`, onCanvasTextChange);
+  inputText.addEventListener(`input`, onInputTextChange);
+  inputLink.addEventListener(`input`, onInputLinkChange);
+  inputCheckboxWithText.addEventListener(`change`, oninputCheckboxWithTextChange);
+
 
   window.configBanner = {
     text
