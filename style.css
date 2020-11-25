@@ -10,6 +10,22 @@
   overflow: hidden;
 }
 
+.container {
+  min-width: 280px;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1220px;
+  }
+}
+
 .body {
   width: 100%;
   max-width: 100%;
@@ -55,10 +71,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 25px;
+    grid-row-gap: 24px;
     margin: 0;
     padding: 0;
 
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     list-style: none;
   }
 }
@@ -82,7 +99,7 @@
   text-align: center;
   display: flex;
   cursor: pointer;
-  width: 75px
+  width: 82px
 }
 
 .form__button--url-prefix::after {
@@ -98,6 +115,8 @@
 }
 
 .form__control--link {
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
 }
 
@@ -121,26 +140,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.container {
-  min-width: 280px;
-  padding: 0 20px;
-}
-@media (min-width: 768px) {
-  .container {
-    padding: 0 30px;
-  }
-}
-@media (min-width: 1440px) {
-  .container {
-    margin: 0 auto;
-    max-width: 1220px;
-  }
-}
-
-.export-buttons__list {
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;

@@ -19,12 +19,17 @@
 
       <div class="preview-wrapper">
         <div class="preview">
-          <h2>Превью</h2>
-          <canvas class="drawingCanvas" id="canvas" width="282" height="376"></canvas>
+          <h2 class="preview__title">Превью картинки</h2>
+          <canvas class="preview__canvas" id="canvas" width="282" height="376"></canvas>
+
+          <div class="preview__demo-html">
+            <h3>Демо баннера</h3>
+            <div class="preview__html-container"></div>
+          </div>
         </div>
 
         <div class="form-wrapper">
-          <h2>Форма настройки баннера</h2>
+          <h2>Настройки баннера</h2>
           <form class="form" action="index.html" method="post">
             <ul class="form__list">
               <li class="form__item">
@@ -33,7 +38,9 @@
               </li>
               <li class="form__item">
                 <label class="form__label" for="text">Напишите текст для баннера</label>
-                <textarea class="form__control--textarea form__control--text form__control--banner-text" id="text" name="name" rows="3" cols="100%"></textarea>
+                <textarea class="form__control--textarea form__control--text form__control--banner-text"
+                    id="text" name="name" rows="3" cols="100%"
+                    placeholder="Текст баннера"></textarea>
               </li>
               <li class="form__item">
                 <label class="form__label" for="color">Выберите цвет заливки</label>
@@ -42,14 +49,15 @@
               <li class="form__item">
                 <label class="form__label" for="link">Укажите ссылку на которую ведет баннер</label>
                 <div class="form__link-wrapper">
-                  <button class="form__button--url-prefix" type="button" name="button">http://</button>
-                  <input id="link" class="form__control form__control--text form__control--link" type="text">
+                  <button class="form__button--url-prefix" type="button" name="button">https://</button>
+                  <input class="form__control form__control--text form__control--link" id="link"
+                      placeholder="avito.ru" type="text">
                 </div>
               </li>
             </ul>
 
             <div class="form__export-buttons export-buttons">
-              <h2 class="export-buttons__title visually-hidden">Кнопки экспорта</h2>
+              <h2 class="export-buttons__main-title">Получить результат</h2>
               <ul class="export-buttons__list">
                 <li class="export-buttons__item">
                   <h3 class="export-buttons__title">Cохранить картинку в png</h3>
@@ -77,7 +85,7 @@
 
               <div class="export-buttons__item">
                 <h3 class="export-buttons__title">Посмотреть конфигурацию баннера</h3>
-                <textarea class="form__control--textarea form__control--export-html" rows="9" cols="80"></textarea>
+                <textarea class="form__control--textarea form__control--export-html" rows="10" cols="80" readonly></textarea>
               </div>
 
             </div>

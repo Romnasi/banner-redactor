@@ -6,7 +6,7 @@
 
   const inputColor = document.querySelector(`.form__control--color`);
   const buttonSavePng = document.querySelector(`.export-buttons__button--save-as-png`);
-  const currentCanvas = document.querySelector(`.drawingCanvas`);
+  const currentCanvas = document.querySelector(`.preview__canvas`);
 
   let backgroundColor = `pink`;
 
