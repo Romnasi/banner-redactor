@@ -4,5 +4,5 @@ env:
   es6: true
   browser: true
 
-# extends:
-#   "es5.5.js"
+extends:
+  "htmlacademy/es5.5"

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Редактор баннеров</title>
   </head>
   <body class="body">
@@ -19,16 +21,6 @@
         <div class="preview">
           <h2>Превью</h2>
           <canvas class="drawingCanvas" id="canvas" width="282" height="376"></canvas>
-
-          <!-- Для теста - удалить после теста -->
-          <br><br>
-          <a href="#" style="color: white">
-            <div class="story-previewer-preview-2LCEH story-previewer-viewed-1bSIJ" style="position: relative">
-              <img width="141" height="188" srcset="https://www.avito.st/s/app/i/story-previews/story-51/preview@3x.jpg 2x, https://www.avito.st/s/app/i/story-previews/story-51/preview@2x.jpg" src="https://www.avito.st/s/app/i/story-previews/story-51/preview@2x.jpg" class="story-previewer-image-pkKji" alt="Ура!">
-              <div class="story-previewer-title-eJkxt" style="position: absolute; top: 120px; left: 10px; width: 141px">Продают собственники</div>
-            </div>
-          </a>
-          <!-- Удалить после теста -->
         </div>
 
         <div class="form-wrapper">
@@ -40,8 +32,8 @@
                 <input class="form__control form__control--file" id="file-input" type="file" accept="image/png, image/jpeg">
               </li>
               <li class="form__item">
-                <label class="form__label" for="text">Напишите текст для баннера (не более 3 строк)</label>
-                <textarea class="form__control--textarea form__control--text" id="text" name="name" rows="3" cols="40"></textarea>
+                <label class="form__label" for="text">Напишите текст для баннера</label>
+                <textarea class="form__control--textarea form__control--text form__control--banner-text" id="text" name="name" rows="3" cols="100%"></textarea>
               </li>
               <li class="form__item">
                 <label class="form__label" for="color">Выберите цвет заливки</label>
@@ -49,34 +41,44 @@
               </li>
               <li class="form__item">
                 <label class="form__label" for="link">Укажите ссылку на которую ведет баннер</label>
-                <input id="link" class="form__control form__control--text form__control--link" type="text">
+                <div class="form__link-wrapper">
+                  <button class="form__button--url-prefix" type="button" name="button">http://</button>
+                  <input id="link" class="form__control form__control--text form__control--link" type="text">
+                </div>
               </li>
             </ul>
 
-            <div class="export-buttons">
-              <h2 class="export-buttons__title">Кнопки экспорта</h2>
+            <div class="form__export-buttons export-buttons">
+              <h2 class="export-buttons__title visually-hidden">Кнопки экспорта</h2>
               <ul class="export-buttons__list">
                 <li class="export-buttons__item">
-                  <h3>Cохранить картинку в png</h3>
+                  <h3 class="export-buttons__title">Cохранить картинку в png</h3>
+                  <div class="">
+                    <input class="export-buttons__control--checkbox export-buttons__control--with-text" id="with-text" type="checkbox" name="with-text" value="" checked>
+                    <label for="with-text">с текстом</label>
+                  </div>
                   <button class="export-buttons__button export-buttons__button--save-as-png" type="button">
                     сохранить
                   </button>
-                  <input class="control form-with-text__control form-with-text__control--checkbox" id="with-text" type="checkbox" name="with-text" value="" checked>
-                  <label for="with-text">с текстом</label>
                 </li>
                 <li class="export-buttons__item">
-                  <h3>скопировать в буфер обмена баннер как html</h3>
-                  <textarea class="form__control--textarea form__control--export-html" name="name" rows="8" cols="80"></textarea>
+                  <h3 class="export-buttons__title">Cкопировать в буфер как html</h3>
                   <button class="export-buttons__button export-buttons__button--clipboard" type="button">
                     скопировать
                   </button>
                 </li>
                 <li class="export-buttons__item">
-                  <button class="export-buttons__button" type="button">
-                    скопировать в буфер обмена конфигурацию баннера как json строку
+                  <h3 class="export-buttons__title">Cкопировать в буфер как json</h3>
+                  <button class="export-buttons__button export-buttons__button--to-json" type="button">
+                    скопировать
                   </button>
                 </li>
               </ul>
+
+              <div class="export-buttons__item">
+                <h3 class="export-buttons__title">Посмотреть конфигурацию баннера</h3>
+                <textarea class="form__control--textarea form__control--export-html" rows="9" cols="80"></textarea>
+              </div>
 
             </div>
 
@@ -86,15 +88,13 @@
 
       </div>
 
-
     </main>
 
-    <script src="lib/fabric.min.js"></script>
-    <script src="lib/FileSaver.js"></script>
+    <script src="js/lib/fabric.min.js"></script>
+    <script src="js/lib/FileSaver.js"></script>
     <script src="js/canvas.js"></script>
     <script src="js/add-image.js"></script>
     <script src="js/clipboard.js"></script>
-    <script src="js/config-banner.js"></script>
-    <!-- <script src="js/script.js"></script> -->
+    <script src="js/text.js"></script>
   </body>
 </html>

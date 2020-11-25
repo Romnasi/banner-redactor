@@ -1,46 +1,47 @@
+// canvas.js
+
+"use strict";
 
 (() => {
-  "use strict"
 
-  const inputColor = document.querySelector('.form__control--color');
-  const buttonSavePng = document.querySelector('.export-buttons__button--save-as-png');
-  const currentCanvas = document.querySelector('.drawingCanvas');
+  const inputColor = document.querySelector(`.form__control--color`);
+  const buttonSavePng = document.querySelector(`.export-buttons__button--save-as-png`);
+  const currentCanvas = document.querySelector(`.drawingCanvas`);
 
-  let backgroundColor = 'pink';
+  let backgroundColor = `pink`;
 
 
   // Дефолтная настройка
-  const canvas = new fabric.Canvas('canvas', {
+  const canvas = new window.fabric.Canvas(`canvas`, {
     width: 282, // Исходная ширина 141 (x2)
     height: 376, // Исходная высота 188 (x2)
-    backgroundColor: backgroundColor
+    backgroundColor
   });
-
-
-  // Отрисовываем canvas
-  const renderCanvas = () => {
-    canvas.clear();
-
-    canvas.backgroundColor = backgroundColor;
-    canvas.add(window.configBanner.text);
-  };
 
 
   const saveToPNG = () => {
     currentCanvas.toBlob((blob) => {
-      saveAs(blob, "pretty image.png");
+      window.saveAs(blob, `pretty image.png`);
     });
   };
 
 
-  inputColor.addEventListener('change', () => {
-    backgroundColor = inputColor.value;
-    renderCanvas();
+  inputColor.addEventListener(`change`, () => {
+    canvas.backgroundColor = inputColor.value;
+    canvas.renderAll();
   });
 
 
-  buttonSavePng.addEventListener('click', () => {
-    saveToPNG();
+  buttonSavePng.addEventListener(`click`, () => {
+    // Если есть активные элементы - сбрасываем выделенные объекты,
+    // чтобы не было видно на картинке
+
+    if (canvas.getActiveObject()) {
+      canvas.discardActiveObject().renderAll();
+      saveToPNG();
+    } else {
+      saveToPNG();
+    }
   });
 
 

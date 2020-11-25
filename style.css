@@ -53,9 +53,12 @@
 @media (min-width: 1080px) {
   .form__list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
     margin: 0;
     padding: 0;
+
+    margin-bottom: 30px;
     list-style: none;
   }
 }
@@ -65,13 +68,53 @@
   margin-bottom: 20px;
 }
 
+.form__item:last-child {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.form__link-wrapper {
+  display: flex;
+}
+
+.form__button--url-prefix {
+  display: inline-block;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  width: 75px
+}
+
+.form__button--url-prefix::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  margin-top: 7px;
+  content: "";
+  border-top: 5px solid black;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.form__control--link {
+  width: 100%;
+}
+
 .form__label {
   color: grey;
   margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .form__control--textarea {
+  box-sizing: border-box;
   width: 100%;
+}
+
+.form__control--banner-text {
+  max-width: 273px;
+  resize: none;
 }
 
 .export-buttons__list {
@@ -94,4 +137,30 @@
     margin: 0 auto;
     max-width: 1220px;
   }
+}
+
+.export-buttons__list {
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.export-buttons__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.export-buttons__button {
+  display: inline-block;
+  margin-top: auto;
+}
+
+.export-buttons__title {
+  margin: 0;
+  margin-bottom: 10px;
+
+  color: grey;
+  font-size: 18px;
+  font-weight: normal;
 }

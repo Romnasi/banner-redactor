@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev": "lite-server"
+    "test": "eslint js/",
+    "start": "lite-server"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "lite-server": "^2.6.1"
   },
   "devDependencies": {
-    "eslint": "^7.14.0"
+    "eslint": "^7.14.0",
+    "eslint-config-htmlacademy": "^0.6.0"
   }
 }
