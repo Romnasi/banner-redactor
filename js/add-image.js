@@ -28,15 +28,12 @@
           }).scale(0.3);
           window.canvas.canvas.add(oImg).renderAll();
 
-          // const dataURL = window.canvas.canvas.toDataURL({
-          //   format: `png`,
-          //   quality: 1
-          // });
         });
       };
       reader.readAsDataURL(file);
     }
 
   });
+
 
 })();

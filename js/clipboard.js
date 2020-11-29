@@ -18,7 +18,7 @@
       }
     })
     .catch((err) => {
-      console.log(`Something went wrong`, err);
+      window.robo.say(`Something went wrong` + err);
     });
   };
 
