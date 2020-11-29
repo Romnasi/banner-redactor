@@ -11,12 +11,6 @@
 
   const oninputCheckboxWithTextChange = () => {
     saveWithtext = inputCheckboxWithText.checked;
-    if (saveWithtext) {
-      window.canvas.canvas.remove(window.text.text);
-      window.canvas.canvas.add(window.text.text);
-    } else {
-      window.canvas.canvas.remove(window.text.text);
-    }
   };
 
   const saveToPNG = () => {
@@ -25,19 +19,42 @@
     });
   };
 
-
-  buttonSavePng.addEventListener(`click`, () => {
+  const discardActiveObject = () => {
     // Если есть активные элементы - сбрасываем выделенные объекты,
     // чтобы не было видно на картинке
-
     if (window.canvas.canvas.getActiveObject()) {
       window.canvas.canvas.discardActiveObject().renderAll();
-      saveToPNG();
-    } else {
-      saveToPNG();
     }
-  });
+  };
+
+  const save = () => {
+    discardActiveObject();
+    saveToPNG();
+  };
+
+
+  const hideText = () => {
+    window.text.text.set(`fill`, `transparent`);
+    window.canvas.canvas.requestRenderAll();
+  };
+
+  const showText = () => {
+    window.text.text.set(`fill`, `white`);
+    window.canvas.canvas.requestRenderAll();
+  };
+
+  const onButtonSavePngClick = () => {
+    if (!saveWithtext) {
+      hideText();
+      setTimeout(save, 100);
+      setTimeout(showText, 100);
+    } else {
+      save();
+    }
+    window.robo.say(`Изображение готово..`);
+  };
 
   inputCheckboxWithText.addEventListener(`change`, oninputCheckboxWithTextChange);
+  buttonSavePng.addEventListener(`click`, onButtonSavePngClick);
 
 })();

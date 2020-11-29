@@ -17,10 +17,10 @@
 
 
   const startPhrase = () => {
-    say(`Привет, человек!`);
+    say(`создадим баннер!`);
   };
 
-  startPhrase();
+  setTimeout(startPhrase, 4000);
 
 
   window.robo = {

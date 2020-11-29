@@ -104,12 +104,20 @@
 }
 
 .promo__robo-baloon {
-  /* width: 215px; */
+  position: relative;
   display: flex;
   justify-content: center;
+  padding-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  .promo__robo-baloon {
+    padding-bottom: 35px;
+  }
 }
 
 .promo__robo-text {
+  position: absolute;
   box-sizing: border-box;
   display: inline-block;
   box-sizing: border-box;
@@ -129,7 +137,7 @@
   white-space: nowrap; /* Keeps the content on a single line */
   letter-spacing: .5px; /* Adjust as needed */
   animation:
-    typing 2.5s steps(120, end),
+    typing 3.5s steps(20, end),
     blink-caret .5s step-end 8;
 }
 
@@ -159,7 +167,7 @@
 
 .robo__flashes--animation {
   animation-name: lightning-flashes;
-  animation-iteration-count: 8;
+  animation-iteration-count: 11;
   animation-timing-function: cubic-bezier(1.0,0,0,1.0);
   animation-duration: 0.3s;
 }
@@ -180,7 +188,7 @@
 
 @keyframes lightning-eyes {
   from { fill: transparent; }
-  to { fill: yellow; }
+  to { fill: #b744d4; }
 }
 
 
@@ -596,8 +604,8 @@ textarea::-webkit-scrollbar-button {
 }
 
 textarea::-webkit-scrollbar-track {
-  background-color:#32312e;
-  box-shadow:0px 0px 3px #000 inset;
+  background-color: #32312e;
+  box-shadow: 0px 0px 3px #000 inset;
 }
 
 textarea::-webkit-scrollbar-thumb {
