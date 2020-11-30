@@ -56,7 +56,7 @@
   };
 
   let currentDataURL = getDataURL();
-  window.dataURL.set(currentDataURL);
+  // window.dataURL.set(currentDataURL);
 
 
   const getBannerWithDataURL = (refreshImage) => {
@@ -186,11 +186,5 @@
   window.canvas.canvas.on(`text:changed`, onCanvasTextChange);
   inputText.addEventListener(`input`, onInputTextChange);
   inputLink.addEventListener(`input`, onInputLinkChange);
-
-
-  window.modifyText = {
-    getDataURL,
-    renderTextareaShowDataURL
-  };
 
 })();

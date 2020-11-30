@@ -27,6 +27,7 @@
             angle: `00`,
           }).scale(0.3);
           window.canvas.canvas.add(oImg).renderAll();
+          window.robo.say(`Отличный выбор!`);
 
         });
       };

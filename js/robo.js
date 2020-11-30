@@ -5,6 +5,8 @@
 
   const roboTextBox = document.querySelector(`.promo__robo-text`);
   const roboFlashesh = document.querySelector(`.robo__flashes`);
+  const previewInfoBtn = document.querySelector(`.preview__info-btn`);
+
 
   const say = (phrase) => {
     roboTextBox.textContent = phrase;
@@ -21,6 +23,11 @@
   };
 
   setTimeout(startPhrase, 4000);
+
+
+  previewInfoBtn.addEventListener(`click`, () => {
+    say(`Можно двигать текст`);
+  });
 
 
   window.robo = {

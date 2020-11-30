@@ -48,9 +48,12 @@
         <div class="preview">
           <div class="preview__title-wrapper">
             <h2 class="preview__title">Превью картинки</h2>
-            <svg class="preview__gear-icon" width="25" height="25">
-              <use xlink:href="#gear-icon"></use>
-            </svg>
+            <button class="preview__info-btn" type="button">
+              <span class="visually-hidden">Справка</span>
+              <svg  width="25" height="25">
+                <use xlink:href="#gear-icon"></use>
+              </svg>
+            </button>
           </div>
           <canvas class="preview__canvas" id="canvas" width="282" height="376"></canvas>
 
@@ -122,7 +125,7 @@
                       </button>
                     </li>
                     <li class="export-buttons__show-config-btn-item">
-                      <button class="export-buttons__show-config export-buttons__show-config--data-uri" type="button">
+                      <button class="export-buttons__show-config export-buttons__show-config--data-uri export-buttons__show-config--hidden" type="button">
                         с data URI
                       </button>
                     </li>
@@ -133,7 +136,7 @@
                       <textarea class="form__control--textarea form__control--export-html" rows="6" readonly></textarea>
                     </li>
                     <li class="export-buttons__textarea-item export-buttons__textarea-item--export-data-url export-buttons__textarea-item--hidden">
-                      <textarea class="form__control--textarea form__control--export-data-url" rows="10" readonly></textarea>
+                      <textarea class="form__control--textarea form__control--export-data-url" rows="6" readonly></textarea>
                     </li>
                   </ul>
                 </div>
@@ -157,8 +160,8 @@
     <script src="js/save-png.js"></script>
     <script src="js/add-image.js"></script>
     <script src="js/clipboard.js"></script>
-    <script src="js/dataURL.js"></script>
     <script src="js/modify-text.js"></script>
     <script src="js/robo.js"></script>
+    <script src="js/tabs.js"></script>
   </body>
 </html>

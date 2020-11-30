@@ -51,7 +51,7 @@
     } else {
       save();
     }
-    window.robo.say(`Изображение готово..`);
+    window.robo.say(`Изображение готово!`);
   };
 
   inputCheckboxWithText.addEventListener(`change`, oninputCheckboxWithTextChange);
