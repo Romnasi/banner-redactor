@@ -187,4 +187,9 @@
   inputText.addEventListener(`input`, onInputTextChange);
   inputLink.addEventListener(`input`, onInputLinkChange);
 
+
+  window.modifyText = {
+    updateDataWithImage
+  };
+
 })();

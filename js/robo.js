@@ -26,7 +26,7 @@
 
 
   previewInfoBtn.addEventListener(`click`, () => {
-    say(`Можно двигать текст`);
+    say(`Текст можно двигать!`);
   });
 
 

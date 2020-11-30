@@ -25,6 +25,7 @@
   inputColor.addEventListener(`change`, () => {
     canvas.backgroundColor = inputColor.value;
     canvas.renderAll();
+    window.modifyText.updateDataWithImage();
   });
 
 
