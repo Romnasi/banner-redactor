@@ -11,8 +11,7 @@ module.exports = {
     "./js/clipboard.js",
     "./js/modify-text.js",
     "./js/robo.js",
-    "./js/tabs.js",
-    "./js/gradient.js"
+    "./js/tabs.js"
   ],
   output: {
     filename: "bundle.js",

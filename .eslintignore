@@ -1,3 +1,4 @@
 webpack.config.js
 fabric.min.js
 FileSaver.js
+bundle.js
