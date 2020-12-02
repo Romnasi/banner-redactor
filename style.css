@@ -490,7 +490,7 @@ body {
 
 @media (min-width: 1440px) {
   .form__list {
-    grid-template-columns: 1.7fr 1.5fr 2.8fr;
+    grid-template-columns: 1.7fr 1.6fr 2.7fr;
     grid-column-gap: 30px;
     grid-row-gap: 25px;
   }
@@ -547,6 +547,7 @@ body {
 
 .form__item--color {
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 3fr;
   grid-column-gap: 10px
 }
@@ -594,7 +595,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 
-  outline-color: #2cff94;
+  outline: none;
 
   background-color: #2e3038;
 
@@ -603,6 +604,10 @@ body {
   color: #2cff94;
 
   border-radius: 5px;
+}
+
+.form__control--link:focus {
+  box-shadow: 0 0 0 2px #2cff94;
 }
 
 
@@ -635,8 +640,8 @@ body {
 
 .form__color-list {
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-column-gap: 10px; */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -659,7 +664,7 @@ body {
   resize: none;
 
   background-color: #2e3038;
-  outline-color: #2cff94;
+  outline: none;
 
   font-family: 'Courier New', Arial, sans-serif;
   font-size: 18px;
@@ -667,6 +672,10 @@ body {
 
   border-radius: 5px;
   border: 1px solid grey;
+}
+
+.form__control--banner-text:focus {
+  box-shadow: 0 0 0 2px #2cff94;
 }
 
 .form__control--banner-text::placeholder {
@@ -686,12 +695,16 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 
-  outline-color: #2cff94;
+  outline: none;
 
   background-color: #2e3038;
   border-radius: 5px;
 
   cursor: pointer;
+}
+
+.form__control--color:focus {
+  box-shadow: 0 0 0 2px #2cff94;
 }
 
 .form__control--color-hex {
@@ -703,7 +716,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 
-  outline-color: #2cff94;
+  outline: none;
 
   background-color: #2e3038;
 
@@ -712,6 +725,10 @@ body {
   color: #2cff94;
 
   border-radius: 5px;
+}
+
+.form__control--color-hex:focus {
+  box-shadow: 0 0 0 2px #2cff94;
 }
 
 .export-buttons__wrapper {
@@ -787,7 +804,7 @@ body {
   position: relative;
 
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 28px;
 
   outline: none;
 
@@ -820,6 +837,10 @@ body {
 
 .export-buttons__button:focus {
   box-shadow: 0 0 0 2px #b744d4;
+}
+
+.export-buttons__button--save-as-png {
+  margin-bottom: 10px;
 }
 
 .export-buttons__btn-text {
@@ -859,7 +880,7 @@ body {
 .export-buttons__title {
   margin: 0;
   padding: 0;
-  margin-bottom: 5px;
+  margin-bottom: auto;
 
   font-family: 'Palatino', Arial, sans-serif;
   font-size: 16px;
@@ -961,11 +982,6 @@ body {
 }
 
 
-.export-buttons__show-config--data-uri {
-  margin-left: -25px;
-}
-
-
 .form__control--export-html,
 .form__control--export-data-url {
   padding-top: 10px;
@@ -981,7 +997,7 @@ body {
   font-size: 14px;
   color: #2cff94;
 
-  border-radius: 0 5px 5px 5px;
+  border-radius: 5px;
   border: 2px solid grey;
 }
 
@@ -1024,8 +1040,8 @@ textarea::-webkit-scrollbar{
 }
 
 .form__control--file:focus + label {
-    outline: 1px dotted #000;
-    outline: -webkit-focus-ring-color auto 5px;
+  box-shadow: 0 0 0 2px #b744d4;
+  border-radius: 10px;
 }
 
 

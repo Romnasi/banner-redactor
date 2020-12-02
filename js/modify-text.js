@@ -11,7 +11,8 @@
     BANNER_HEIGHT: 188,
     BANNER_IMG_SRC: `https://www.avito.st/s/app/i/story-previews/story-51/preview@2x.jpg`,
     BANNER_LINK: `https://avito.ru`,
-    CANVAS_TO_BANNER_RATIO: 2
+    CANVAS_TO_BANNER_RATIO: 2,
+    BANNER_TEXT_COLOR: `#ffffff`
   };
 
   const MAX_NUMBER_OF_LINES = 3;
@@ -27,6 +28,7 @@
   let bannerTextX = Default.BANNER_TEXT_X;
   let bannerTextY = Default.BANNER_TEXT_Y;
   let currentImgSrc = Default.BANNER_IMG_SRC;
+  let currentTextColor = Default.BANNER_TEXT_COLOR;
 
 
   const getBannerHTML = () => {
@@ -34,7 +36,9 @@
     const textForTitle = currentText.replace(/\n/g, `<br>`);
     const textForAlt = currentText.replace(/\n/g, ` `);
 
-    return `<a href="${currentLink}" style="color: white">
+    currentTextColor = window.text.text.fill;
+
+    return `<a href="${currentLink}" style="color: ${currentTextColor}">
   <div class="story-previewer-preview-2LCEH story-previewer-viewed-1bSIJ" style="position: relative; display: inline-block; overflow: hidden">
     <img width="${Default.BANNER_WIDTH}" height="${Default.BANNER_HEIGHT}" src="${currentImgSrc}" style="border-radius: 8px"
         class="story-previewer-image-pkKji" alt="${textForAlt}">
@@ -56,7 +60,6 @@
   };
 
   let currentDataURL = getDataURL();
-  // window.dataURL.set(currentDataURL);
 
 
   const getBannerWithDataURL = (refreshImage) => {
@@ -65,10 +68,12 @@
       currentDataURL = getDataURL();
     }
 
+    currentTextColor = window.text.text.fill;
+
     const textForTitle = currentText.replace(/\n/g, `<br>`);
     const textForAlt = currentText.replace(/\n/g, ` `);
 
-    return `<a href="${currentLink}" style="color: white">
+    return `<a href="${currentLink}" style="color: ${currentTextColor}">
   <div class="story-previewer-preview-2LCEH story-previewer-viewed-1bSIJ" style="position: relative; display: inline-block; overflow: hidden">
     <img width="${Default.BANNER_WIDTH}" height="${Default.BANNER_HEIGHT}" src="${currentDataURL}" style="border-radius: 8px"
         class="story-previewer-image-pkKji" alt="${textForAlt}">
@@ -189,6 +194,7 @@
 
 
   window.modifyText = {
+    updateData,
     updateDataWithImage
   };
 

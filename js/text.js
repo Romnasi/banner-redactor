@@ -1,4 +1,4 @@
-// modify-text.js
+// text.js
 
 "use strict";
 

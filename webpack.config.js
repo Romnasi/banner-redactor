@@ -4,6 +4,7 @@ module.exports = {
   entry: [
     "./js/util.js",
     "./js/canvas.js",
+    "./js/color.js",
     "./js/text.js",
     "./js/save-png.js",
     "./js/add-image.js",

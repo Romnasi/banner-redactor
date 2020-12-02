@@ -1,3 +1,4 @@
+// clipboard.js
 "use strict";
 
 (() => {
