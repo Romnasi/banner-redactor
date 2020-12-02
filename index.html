@@ -61,63 +61,93 @@
             <h2 class="preview__title">Превью картинки</h2>
             <button class="preview__info-btn" type="button">
               <span class="visually-hidden">Справка</span>
-              <svg  width="25" height="25">
+              <svg class="preview__gear-icon"  width="25" height="25">
                 <use xlink:href="#gear-icon"></use>
               </svg>
             </button>
           </div>
-          <canvas class="preview__canvas" id="canvas" width="282" height="376"></canvas>
+
+          <div class="preview__canvas-wrapper">
+            <canvas class="preview__canvas" id="canvas" width="282" height="376"></canvas>
+          </div>
 
           <div class="preview__demo-html">
-            <h3 class="preview__demo-title">Демо баннера</h3>
+            <h3 class="preview__demo-title">Демо разметки</h3>
             <div class="preview__html-container"></div>
           </div>
         </div>
 
         <section class="form">
-          <h2 class="form__title">Настройки баннера</h2>
 
           <form class="form__form" action="index.html" method="post">
-            <ul class="form__list">
-              <li class="form__item">
-                <label class="form__label" for="text">Напишите текст для баннера</label>
-                <textarea class="form__control--textarea form__control--text form__control--banner-text"
-                id="text" name="name" rows="3" placeholder="Текст баннера"></textarea>
-              </li>
-              <li class="form__item">
-                <label class="form__label" for="file-input">Выберите изображение</label>
-                <input class="form__control form__control--file" id="file-input" type="file" accept="image/png, image/jpeg">
-              </li>
-              <li class="form__item">
-                <h3 class="form__color-title">Выберите цвет заливки</h3>
-                <ul class="form__color-list">
-                  <li class="form__color-item">
-                    <label class="form__label" for="color">Палитра</label>
-                    <input class="form__control form__control--color" id="color" type="color" value="#b744d4">
-                  </li>
-                  <li class="form__color-item">
-                    <label class="form__label" for="color">HEX</label>
-                    <input class="form__control form__control--color-hex" id="color" type="text" value="#b744d4">
-                  </li>
-                </ul>
-              </li>
-              <li class="form__item">
-                <label class="form__label" for="link">Укажите ссылку на которую ведет баннер</label>
-                <input class="form__control form__control--text form__control--link" id="link" placeholder="https://www.avito.ru" type="url" pattern="https?://.+">
-              </li>
-            </ul>
+
+            <div class="form__form-wrapper">
+              <h2 class="form__title">Настройки баннера</h2>
+              <ul class="form__list">
+                <li class="form__item form__item--text">
+                  <label class="form__label" for="text">Напишите текст</label>
+                  <textarea class="form__control--textarea form__control--text form__control--banner-text"
+                        id="text" name="name" rows="3" placeholder="Текст баннера"></textarea>
+                </li>
+                <li class="form__item form__item--file">
+                  <input class="form__control form__control--file visually-hidden" type="file" id="file" accept="image/png, image/jpeg">
+                  <label class="form__label form__label--file" for="file">
+                    <span class="form__label-text">Загрузите картинку</span>
+                    <figure>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                        <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                      </svg>
+                    </figure>
+                  </label>
+                </li>
+                <li class="form__item form__item--color form__item--background-color">
+                  <h3 class="form__label form__label--color">Цвет заливки</h3>
+                  <ul class="form__color-list">
+                    <li class="form__color-item">
+                      <label class="form__label visually-hidden" for="color">Палитра</label>
+                      <input class="form__control form__control--color" id="color"
+                          type="color" value="#b744d4" maxlength="7" minlength="4">
+                    </li>
+                    <li>
+                      <span class="form__color-text">или</span>
+                    </li>
+                    <li class="form__color-item">
+                      <label class="form__label visually-hidden" for="color">HEX</label>
+                      <input class="form__control form__control--color-hex" id="color"
+                          type="text" value="#b744d4" maxlength="7"  minlength="4">
+                    </li>
+                  </ul>
+                </li>
+                <li class="form__item form__item--color form__item--gradient">
+                  <h3 class="form__label form__label--color">Цвет текста</h3>
+                  <ul class="form__color-list">
+                    <li class="form__color-item">
+                      <label class="form__label visually-hidden" for="color">Палитра</label>
+                      <input class="form__control form__control--color" id="color" type="color" value="#b744d4">
+                    </li>
+                    <li>
+                      <span class="form__color-text">или</span>
+                    </li>
+                    <li class="form__color-item">
+                      <label class="form__label visually-hidden" for="color">HEX</label>
+                      <input class="form__control form__control--color-hex" id="color" type="text" value="#b744d4">
+                    </li>
+                  </ul>
+                </li>
+                <li class="form__item">
+                  <label class="form__label form__label--text" for="link">Укажите ссылку на которую ведет баннер</label>
+                  <input class="form__control form__control--text form__control--link" id="link" placeholder="https://www.avito.ru" type="url" pattern="https?://.+">
+                </li>
+              </ul>
+            </div>
 
             <div class="form__export-buttons export-buttons">
-              <h2 class="export-buttons__main-title">Получить результат</h2>
 
               <div class="export-buttons__wrapper">
+                <h2 class="export-buttons__main-title">Получить результат</h2>
                 <ul class="export-buttons__list">
                   <li class="export-buttons__item">
                     <h3 class="export-buttons__title">Cохранить картинку в png</h3>
-                    <div class="">
-                      <input class="export-buttons__control--checkbox export-buttons__control--with-text" id="with-text" type="checkbox" name="with-text" value="">
-                      <label for="with-text">с текстом</label>
-                    </div>
                     <button class="export-buttons__button export-buttons__button--save-as-png" type="button">
                       <span class="export-buttons__btn-text">
                         сохранить
@@ -126,9 +156,13 @@
                         <use xlink:href="#save-icon"></use>
                       </svg>
                     </button>
+                    <div class="export-buttons__with-text-checkbox">
+                      <input class="export-buttons__control--checkbox export-buttons__control--with-text" id="with-text" type="checkbox" name="with-text" value="">
+                      <label class="export-buttons__with-text--desc" for="with-text">с текстом</label>
+                    </div>
                   </li>
                   <li class="export-buttons__item">
-                    <h3 class="export-buttons__title">Cкопировать в буфер как html</h3>
+                    <h3 class="export-buttons__title">Cкопировать в буфер html</h3>
                     <button class="export-buttons__button export-buttons__button--clipboard" type="button">
                       <span class="export-buttons__btn-text">
                         скопировать
@@ -139,7 +173,7 @@
                     </button>
                   </li>
                   <li class="export-buttons__item">
-                    <h3 class="export-buttons__title">Cкопировать в буфер как json</h3>
+                    <h3 class="export-buttons__title">Cкопировать в буфер в json</h3>
                     <button class="export-buttons__button export-buttons__button--to-json" type="button">
                       <span class="export-buttons__btn-text">
                         скопировать
@@ -151,7 +185,7 @@
                   </li>
                 </ul>
 
-                <div class="export-buttons__item">
+                <div class="export-buttons__textarea">
                   <h3 class="export-buttons__title">Посмотреть конфигурацию баннера</h3>
                   <ul class="export-buttons__show-config-btn-list">
                     <li class="export-buttons__show-config-btn-item">
